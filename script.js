@@ -354,3 +354,211 @@ function sleep(ms){
 }
 
 console.log("Birthday Website Part 1 Loaded ❤️");
+/* =====================================================
+   Part 2
+   Memory Slideshow
+====================================================== */
+
+const memories = [
+
+{
+title:"💍 The Day We Became One",
+
+description:"Two hearts... One promise... Forever begins here ❤️",
+
+image:"assets/photos/wedding.jpg"
+},
+
+{
+title:"🥰 Our First Selfie",
+
+description:"From strangers... to best friends... to soulmates.",
+
+image:"assets/photos/selfie.jpg"
+},
+
+{
+title:"👶 Our Little Princess",
+
+description:"Then our little miracle arrived and changed our world forever.",
+
+image:"assets/photos/newborn.jpg"
+},
+
+{
+title:"👨‍👧 The Best Father",
+
+description:"Watching you become a father made me love you even more ❤️",
+
+image:"assets/photos/father1.jpg"
+},
+
+{
+title:"😴 Like Father, Like Daughter",
+
+description:"One sleeps... One copies... My two favorite people ❤️",
+
+image:"assets/photos/sleeping.jpg"
+},
+
+{
+title:"🏡 Our Future",
+
+description:"Every dream starts with us. Our next chapter begins here.",
+
+image:"assets/photos/future-home.jpg"
+}
+
+];
+
+let memoryIndex=0;
+
+
+/* ==========================================
+Start Memories
+========================================== */
+
+function startMemories(){
+
+memoryIndex=0;
+
+showMemory();
+
+}
+
+
+
+/* ==========================================
+Display One Memory
+========================================== */
+
+function showMemory(){
+
+const img=document.getElementById("memoryImage");
+
+const title=document.getElementById("memoryTitle");
+
+const desc=document.getElementById("memoryDescription");
+
+const memory=memories[memoryIndex];
+
+title.style.opacity=0;
+desc.style.opacity=0;
+img.style.opacity=0;
+
+setTimeout(()=>{
+
+img.src=memory.image;
+
+title.innerHTML=memory.title;
+
+desc.innerHTML=memory.description;
+
+img.style.opacity=1;
+
+title.style.opacity=1;
+
+desc.style.opacity=1;
+
+animateZoom(img);
+
+},500);
+
+
+memoryIndex++;
+
+if(memoryIndex<memories.length){
+
+setTimeout(showMemory,5000);
+
+}
+
+else{
+
+setTimeout(()=>{
+
+nextScene("gallery");
+
+startGallery();
+
+},6000);
+
+}
+
+}
+
+
+
+/* ==========================================
+Zoom Animation
+========================================== */
+
+function animateZoom(img){
+
+img.animate([
+
+{
+
+transform:"scale(1)"
+
+},
+
+{
+
+transform:"scale(1.12)"
+
+}
+
+],
+
+{
+
+duration:5000,
+
+fill:"forwards",
+
+easing:"ease-in-out"
+
+});
+
+}
+
+
+
+/* ==========================================
+Override nextScene
+========================================== */
+
+const originalNextScene=nextScene;
+
+nextScene=function(id){
+
+document.querySelectorAll(".screen").forEach(scene=>{
+
+scene.classList.remove("active");
+
+scene.classList.add("hidden");
+
+});
+
+showScene(id);
+
+switch(id){
+
+case "scanner":
+
+startScanner();
+
+break;
+
+case "memories":
+
+startMemories();
+
+break;
+
+}
+
+}
+
+console.log("Part 2 Loaded ❤️");
