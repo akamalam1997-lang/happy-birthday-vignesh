@@ -46,7 +46,32 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
 <!-- Scene 1 -->
 <!-- Loading Screen -->
 <!-- ========================================================= -->
+<div id="loading" class="screen">
+    <h2 id="loadingText">0%</h2>
+    <div class="progress">
+        <div id="loadingBar"></div>
+    </div>
+</div>
 
+<div id="welcome" class="screen hidden">
+    <h1 id="typing"></h1>
+    <button id="futureBtn">See My Future ❤️</button>
+</div>
+
+<div id="scanner" class="screen hidden">
+    <h2 id="scanStatus">Initializing...</h2>
+    <div class="progress">
+        <div id="scanProgress"></div>
+    </div>
+</div>
+
+<div id="memories" class="screen hidden">
+    <h1>Our Journey ❤️</h1>
+</div>
+
+<audio id="bgMusic" loop>
+    <source src="assets/music/bg.mp3" type="audio/mpeg">
+</audio>
 <section id="loadingScreen" class="screen">
 
     <div class="loading-content">
