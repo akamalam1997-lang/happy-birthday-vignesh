@@ -181,7 +181,8 @@ width:100%;
 height:100%;
 
 background:
-radial-gradient(circle at top,#203a43,#0f2027,#050816);
+url('https://github.com/user-attachments/assets/8d4f815a-5b32-4397-8855-de0700b18f4d');
+
 
 z-index:-5;
 
@@ -199,8 +200,7 @@ width:100%;
 
 height:100%;
 
-background-image:
-radial-gradient(white 1px,transparent 1px);
+background-image: url('https://github.com/user-attachments/assets/8d4f815a-5b32-4397-8855-de0700b18f4d');
 
 background-size:45px 45px;
 
